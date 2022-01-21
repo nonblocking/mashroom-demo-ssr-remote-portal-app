@@ -25,9 +25,18 @@ app.get('/test_ssr', test_ssr);
 // Client
 app.use('/public', express.static(path.resolve(__dirname, '../../dist/frontend')));
 
+// Test page
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../dist/frontend/index.html'));
+});
+
 // Expose package.json for Mashroom Portal
-app.use('/mashroom.json', express.static(path.resolve(__dirname, '..', '..', 'mashroom.json')));
-app.use('/package.json', express.static(path.resolve(__dirname, '..', '..', 'package.json')));
+app.get('/mashroom.json', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../mashroom.json'));
+});
+app.get('/package.json', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../package.json'));
+});
 
 app.listen(PORT, () => {
     logger.info('Server available at http://localhost:%s', PORT);

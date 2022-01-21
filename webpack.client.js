@@ -30,7 +30,7 @@ module.exports = merge(common(isProd), {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist/frontend'),
-        publicPath: '/',
+        publicPath: '/public',
     },
     target: ['web', 'es5'],
     mode: isProd ? 'production' : 'development',
