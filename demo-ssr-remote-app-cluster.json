@@ -1,0 +1,13 @@
+{
+    "apps": [
+        {
+            "script": "dist/server/index.js",
+            "instances": "2",
+            "exec_mode": "cluster",
+            "max_restarts": 3,
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

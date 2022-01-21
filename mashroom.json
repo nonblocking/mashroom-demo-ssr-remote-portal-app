@@ -1,0 +1,41 @@
+{
+    "$schema": "./node_modules/@mashroom/mashroom-json-schemas/schemas/mashroom-plugins.json",
+    "devModeBuildScript": "build",
+    "plugins": [
+        {
+            "name": "Mashroom Demo SSR Remote Portal App",
+            "type": "portal-app2",
+            "clientBootstrap": "startupDemoSSRRemotePortalApp",
+            "resources": {
+                "js": [
+                    "index.js"
+                ],
+                "css": [
+                    "styles.css"
+                ]
+            },
+            "local": {
+                "resourcesRoot": "./dist/frontend",
+                "ssrBootstrap": "./dist/server/ssr.js"
+            },
+            "remote": {
+                "resourcesRoot": "/",
+                "ssrInitialHtmlPath": "/api/ssr"
+            },
+            "defaultConfig": {
+                "title": "Mashroom Demo SSR Remote Portal App",
+                "category": "Demo",
+                "caching": {
+                    "ssrHtml": "same-config"
+                },
+                "proxies": {
+                    "bff": {
+                        "targetUri": "http://localhost:6089/api",
+                        "sendPermissionsHeader": true
+                    }
+                },
+                "appConfig": {}
+            }
+        }
+    ]
+}
