@@ -23,7 +23,7 @@ app.use('/api', api);
 app.get('/test_ssr', test_ssr);
 
 // Client
-app.use(express.static(path.resolve(__dirname, '../../dist/frontend')));
+app.use('/public', express.static(path.resolve(__dirname, '../../dist/frontend')));
 
 // Expose package.json for Mashroom Portal
 app.use('/mashroom.json', express.static(path.resolve(__dirname, '..', '..', 'mashroom.json')));
