@@ -14,6 +14,11 @@ if (!isProd) {
         template: path.resolve(__dirname, '../../src/frontend/index.html'),
     }));
     plugins.push(new webpack.HotModuleReplacementPlugin());
+} else {
+    plugins.push(new HtmlWebpackPlugin({
+        inject: 'head',
+        template: path.resolve(__dirname, 'src/frontend/index.html'),
+    }));
 }
 
 module.exports = merge(common(isProd), {
