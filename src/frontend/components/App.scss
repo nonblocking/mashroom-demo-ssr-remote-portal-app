@@ -11,3 +11,20 @@
 .Error {
     color: red;
 }
+
+.RemoteAppInfoBox {
+    padding-top: 30px;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.InfoIcon {
+    &:before {
+        content: '\f129';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 22px;
+        margin-right: 10px;
+    }
+}

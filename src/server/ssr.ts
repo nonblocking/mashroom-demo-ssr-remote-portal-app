@@ -10,7 +10,7 @@ import type {MashroomPortalAppPluginSSRBootstrapFunction} from '@mashroom/mashro
 import type {ClientState} from '../type-definitions';
 
 const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalAppSetup) => {
-    const { appId } = portalAppSetup;
+    const { appId, appConfig: {standalone} } = portalAppSetup;
 
     // Prefetch data and setup Redux store
     const restProxyPath = `http://localhost:${PORT}/api`;
@@ -22,7 +22,7 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     const appHtml = renderToString(
         createElement(
             Provider, { store },
-            createElement(App, { restProxyPath})
+            createElement(App, { restProxyPath, standalone })
         )
     );
 

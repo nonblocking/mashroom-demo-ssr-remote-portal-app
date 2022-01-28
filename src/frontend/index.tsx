@@ -12,7 +12,7 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
     portalAppHostElement,
     portalAppSetup
 ) => {
-    const { appId, restProxyPaths } = portalAppSetup;
+    const { appId, restProxyPaths, appConfig: {standalone} } = portalAppSetup;
     const restProxyPath = restProxyPaths.bff;
 
     const preloadedStateStr = (global as any)[`__PRELOADED_STATE_${appId}__`];
@@ -26,7 +26,7 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
 
         hydrate(
             <Provider store={store}>
-                <App restProxyPath={restProxyPath}/>
+                <App standalone={!!standalone} restProxyPath={restProxyPath}/>
             </Provider>,
             ssrHost,
         );
@@ -36,24 +36,26 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
                 unmountComponentAtNode(ssrHost);
             },
         };
-    } else {
-        // CSR
-
-        const store = storeFactory();
-
-        render(
-            <Provider store={store}>
-                <App restProxyPath={restProxyPath}/>
-            </Provider>,
-            portalAppHostElement,
-        );
-
-        return {
-            willBeRemoved: () => {
-                unmountComponentAtNode(portalAppHostElement);
-            },
-        };
     }
+
+    console.info('!!!!!', portalAppSetup);
+
+    // CSR
+
+    const store = storeFactory();
+
+    render(
+        <Provider store={store}>
+            <App standalone={!!standalone} restProxyPath={restProxyPath}/>
+        </Provider>,
+        portalAppHostElement,
+    );
+
+    return {
+        willBeRemoved: () => {
+            unmountComponentAtNode(portalAppHostElement);
+        },
+    };
 };
 
 (global as any).startupDemoSSRRemotePortalApp = bootstrap;

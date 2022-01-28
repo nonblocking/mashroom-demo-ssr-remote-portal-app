@@ -2,7 +2,10 @@
 # Mashroom Demo Server-Side Rendering Remote Portal App
 
 Demo App (SPA) for [Mashroom Server](https://www.mashroom-server.com) that shows a random Chuck Norris joke from
-[http://api.icndb.com](http://api.icndb.com). It shows how to integrate Apps from remote servers into the *Mashroom Portal*.
+[http://api.icndb.com](http://api.icndb.com).
+This App comes with its own server and *BFF* (Backend For Frontend) and can be integrated as a *Remote App*
+into *Mashroom Portal*.
+
 This demo is similar to [https://github.com/nonblocking/mashroom-demo-remote-portal-app](https://github.com/nonblocking/mashroom-demo-remote-portal-app)
 but additionally shows how server-side rendering can be used in Remote Apps.
 
