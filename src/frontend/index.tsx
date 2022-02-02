@@ -38,12 +38,8 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
         };
     }
 
-    console.info('!!!!!', portalAppSetup);
-
     // CSR
-
     const store = storeFactory();
-
     render(
         <Provider store={store}>
             <App standalone={!!standalone} restProxyPath={restProxyPath}/>
