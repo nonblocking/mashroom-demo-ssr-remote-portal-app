@@ -17,7 +17,7 @@ export default async (req: Request, res: Response) => {
             return;
         }
 
-        const html = await ssr(ssrData.portalAppSetup);
+        const html = await ssr(ssrData.portalAppSetup, req);
 
         res.setHeader('Content-Type', 'text/html');
         res.send(html);

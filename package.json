@@ -1,6 +1,6 @@
 {
     "name": "@mashroom/mashroom-demo-ssr-remote-portal-app",
-    "description": "Mashroom Demo Server-Side Rendering Remote Portal App",
+    "description": "Mashroom Demo Hybrid Rendering Remote Portal App",
     "version": "1.0.0",
     "homepage": "https://www.mashroom-server.com",
     "repository": "github:nonblocking/mashroom-demo-remote-portal-app",
@@ -34,9 +34,9 @@
         "react-redux": "^7.2.6"
     },
     "devDependencies": {
-        "@mashroom/mashroom": "^2.0.0-alpha.2",
-        "@mashroom/mashroom-portal": "^2.0.0-alpha.2",
-        "@mashroom/mashroom-json-schemas": "^2.0.0-alpha.2",
+        "@mashroom/mashroom": "^2.0.0-alpha.3",
+        "@mashroom/mashroom-portal": "^2.0.0-alpha.3",
+        "@mashroom/mashroom-json-schemas": "^2.0.0-alpha.3",
         "@babel/cli": "^7.16.8",
         "@babel/core": "^7.16.10",
         "@babel/preset-env": "^7.16.11",
