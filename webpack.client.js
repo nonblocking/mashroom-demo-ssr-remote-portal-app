@@ -7,18 +7,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProd = process.env.NODE_ENV !== 'development';
 
-const plugins = [];
-if (!isProd) {
-    plugins.push(new HtmlWebpackPlugin({
-        inject: 'head',
-        template: path.resolve(__dirname, '../../src/frontend/index.html'),
-    }));
-    plugins.push(new webpack.HotModuleReplacementPlugin());
-} else {
-    plugins.push(new HtmlWebpackPlugin({
+const plugins = [
+    new HtmlWebpackPlugin({
         inject: 'head',
         template: path.resolve(__dirname, 'src/frontend/index.html'),
-    }));
+    }),
+];
+if (!isProd) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
 module.exports = merge(common(isProd), {

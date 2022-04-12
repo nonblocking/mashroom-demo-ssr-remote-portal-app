@@ -28,7 +28,9 @@ POST a JSON body with an empty *portalAppSetup* like this:
 
 ```json
 {
-  "portalAppSetup": {}
+    "portalAppSetup": {
+        "appConfig": {}
+    }
 }
 ```
 

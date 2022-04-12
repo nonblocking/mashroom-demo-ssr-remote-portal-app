@@ -7,11 +7,10 @@ const common = require('./webpack.common');
 
 module.exports = merge(common(true), {
     entry: {
-        index: './src/server',
-        ssr:  './src/server/ssr',
+        index: './src/server/ssr',
     },
     output: {
-        filename: '[name].js',
+        filename: 'ssr.js',
         path: path.resolve(__dirname, 'dist/server'),
         library: {
             type: 'commonjs',
