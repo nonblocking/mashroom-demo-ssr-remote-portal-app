@@ -15,7 +15,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var portalAppSetup = {
                 user: {},
-                restProxyPaths: {
+                proxyPaths: {
                     bff: '/api'
                 },
                 appConfig: {
@@ -23,16 +23,6 @@
                 }
             };
             var clientServices = {
-                restService: {
-                    basePath: '',
-                    withBasePath(path) {
-                        this.basePath = path;
-                        return this;
-                    },
-                    get(path) {
-                        return fetch(this.basePath + path, { credentials: 'same-origin' }).then((res) => res.json());
-                    }
-                }
             };
 
             window.startupDemoSSRRemotePortalApp(document.getElementById('portal-app-placeholder'), portalAppSetup, clientServices);

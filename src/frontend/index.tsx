@@ -12,8 +12,8 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
     portalAppHostElement,
     portalAppSetup
 ) => {
-    const { appId, restProxyPaths, appConfig: {standalone} } = portalAppSetup;
-    const restProxyPath = restProxyPaths.bff;
+    const { appId, proxyPaths, appConfig: {standalone} } = portalAppSetup;
+    const bffBasePath = proxyPaths.bff;
 
     const preloadedStateStr = (global as any)[`__PRELOADED_STATE_${appId}__`];
     const ssrHost = portalAppHostElement.querySelector('[data-ssr-host="true"]');
@@ -26,7 +26,7 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
 
         hydrate(
             <Provider store={store}>
-                <App standalone={!!standalone} restProxyPath={restProxyPath}/>
+                <App standalone={!!standalone} bffBasePath={bffBasePath}/>
             </Provider>,
             ssrHost,
         );
@@ -42,7 +42,7 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
     const store = storeFactory();
     render(
         <Provider store={store}>
-            <App standalone={!!standalone} restProxyPath={restProxyPath}/>
+            <App standalone={!!standalone} bffBasePath={bffBasePath}/>
         </Provider>,
         portalAppHostElement,
     );

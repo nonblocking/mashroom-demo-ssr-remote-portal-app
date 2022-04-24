@@ -8,7 +8,7 @@ import type {ClientState} from '../../type-definitions';
 
 type Props = {
     standalone: boolean;
-    restProxyPath: string;
+    bffBasePath: string;
 }
 
 const RemoteAppInfoBox = () => (
@@ -28,7 +28,7 @@ const RemoteAppInfoBox = () => (
     </div>
 );
 
-export default ({standalone, restProxyPath}: Props) => {
+export default ({standalone, bffBasePath}: Props) => {
     const dispatch = useDispatch();
     const joke = useSelector<ClientState, string | null | undefined>(s => s.joke);
     const loading = useSelector<ClientState, boolean>(s => s.loading);
@@ -37,7 +37,7 @@ export default ({standalone, restProxyPath}: Props) => {
     const loadJoke = useCallback(() => {
         dispatch(setLoading(true));
         dispatch(setError(false));
-        fetchJoke(restProxyPath).then(
+        fetchJoke(bffBasePath).then(
             (joke) => {
                 dispatch(setJoke(joke));
                 dispatch(setLoading(false));
