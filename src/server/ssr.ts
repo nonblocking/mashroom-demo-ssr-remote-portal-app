@@ -13,8 +13,8 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     const { appId, appConfig: {standalone} } = portalAppSetup;
 
     // Prefetch data and setup Redux store
-    const restProxyPath = `http://localhost:${PORT}/api`;
-    const joke = await fetchJoke(restProxyPath);
+    const bffBasePath = `http://localhost:${PORT}/api`;
+    const joke = await fetchJoke(bffBasePath);
     const preloadedState: ClientState = { joke, error: false, loading: false };
     const store = storeFactory(preloadedState);
 
@@ -22,7 +22,7 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     const appHtml = renderToString(
         createElement(
             Provider, { store },
-            createElement(App, { restProxyPath, standalone })
+            createElement(App, { bffBasePath, standalone })
         )
     );
 
