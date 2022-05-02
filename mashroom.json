@@ -19,7 +19,7 @@
                 "ssrBootstrap": "./dist/server/ssr.js"
             },
             "remote": {
-                "resourcesRoot": "/public",
+                "resourcesRoot": "/",
                 "ssrInitialHtmlPath": "/api/ssr"
             },
             "defaultConfig": {

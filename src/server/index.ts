@@ -22,9 +22,6 @@ app.use('/api', api);
 // SSR Test Page
 app.get('/test_ssr', test_ssr);
 
-// Client
-app.use('/public', express.static(path.resolve(__dirname, '../../dist/frontend')));
-
 // Test page
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../dist/frontend/index.html'));
@@ -37,6 +34,9 @@ app.get('/mashroom.json', (req, res) => {
 app.get('/package.json', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../package.json'));
 });
+
+// Client static resources
+app.use(express.static(path.resolve(__dirname, '../../dist/frontend')));
 
 app.listen(PORT, () => {
     logger.info('Server available at http://localhost:%s', PORT);
