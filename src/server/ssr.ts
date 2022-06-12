@@ -3,7 +3,7 @@ import {createElement} from 'react';
 import {renderToString} from 'react-dom/server';
 import {Provider} from 'react-redux';
 import {PORT} from './constants';
-import storeFactory from '../frontend//store';
+import storeFactory from '../frontend/store';
 import App from '../frontend/components/App';
 import fetchJoke from '../frontend/fetchJoke';
 import type {MashroomPortalAppPluginSSRBootstrapFunction} from '@mashroom/mashroom-portal/type-definitions';
@@ -21,7 +21,7 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     // Render App with preloaded State
     const appHtml = renderToString(
         createElement(
-            Provider, { store },
+            Provider, { store, children: undefined },
             createElement(App, { bffBasePath, standalone })
         )
     );

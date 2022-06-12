@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {hydrate, render, unmountComponentAtNode} from 'react-dom';
+import {createRoot, hydrateRoot} from 'react-dom/client';
 import {Provider} from 'react-redux';
 import storeFactory from './store';
 import App from './components/App';
@@ -24,32 +24,32 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
         const preloadedState: ClientState = JSON.parse(preloadedStateStr);
         const store = storeFactory(preloadedState);
 
-        hydrate(
+        const root = hydrateRoot(ssrHost,
             <Provider store={store}>
                 <App standalone={!!standalone} bffBasePath={bffBasePath}/>
             </Provider>,
-            ssrHost,
         );
 
         return {
             willBeRemoved: () => {
-                unmountComponentAtNode(ssrHost);
+                root.unmount();
             },
         };
     }
 
     // CSR
     const store = storeFactory();
-    render(
+
+    const root = createRoot(portalAppHostElement);
+    root.render(
         <Provider store={store}>
             <App standalone={!!standalone} bffBasePath={bffBasePath}/>
-        </Provider>,
-        portalAppHostElement,
+        </Provider>
     );
 
     return {
         willBeRemoved: () => {
-            unmountComponentAtNode(portalAppHostElement);
+            root.unmount();
         },
     };
 };
