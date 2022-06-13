@@ -21,7 +21,8 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     // Render App with preloaded State
     const appHtml = renderToString(
         createElement(
-            Provider, { store, children: undefined },
+            // @ts-ignore
+            Provider, { store },
             createElement(App, { bffBasePath, standalone })
         )
     );
