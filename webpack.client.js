@@ -21,7 +21,7 @@ module.exports = merge(common(isProd), {
     entry: {
         bundle: isProd ?
             './src/frontend' :
-            ['webpack-hot-middleware/client?reload=true', 'react-hot-loader/patch', './src/frontend'],
+            ['webpack-hot-middleware/client?reload=true', './src/frontend'],
     },
     output: {
         filename: 'index.js',

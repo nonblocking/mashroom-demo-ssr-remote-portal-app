@@ -44,3 +44,10 @@ to: http://localhost:6089/api/ssr
  * Open http://localhost:5050/portal and place the _Mashroom Demo Remote Portal App_ on any page via Drag'n'Drop
 
 **NOTE**: Requires Mashroom >=2.0.0
+
+### Docker
+
+    npm install
+    npm run build
+    docker build -t mashroom-demo-ssr-remote-portal-app .
+    docker run --rm -p 6089:6089 mashroom-demo-ssr-remote-portal-app
