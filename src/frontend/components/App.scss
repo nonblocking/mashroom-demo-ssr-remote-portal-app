@@ -22,7 +22,7 @@
 .InfoIcon {
     &:before {
         content: '\f129';
-        font-family: 'Font Awesome 5 Free';
+        font-family: var(--mashroom-portal-font-icon, 'Font Awesome 5 Free');
         font-weight: 900;
         font-size: 22px;
         margin-right: 10px;
