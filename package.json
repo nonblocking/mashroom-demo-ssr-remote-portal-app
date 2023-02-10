@@ -7,7 +7,7 @@
     "license": "MIT",
     "private": true,
     "engines": {
-        "node": ">=12"
+        "node": ">=14"
     },
     "scripts": {
         "start": "pm2 start demo-ssr-remote-app-cluster.json",
