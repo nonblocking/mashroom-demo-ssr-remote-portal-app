@@ -1,9 +1,9 @@
 
 import {SET_JOKE, SET_LOADING, SET_ERROR} from './actions';
-import type {Reducer} from 'redux';
+import type {Reducer, AnyAction} from 'redux';
 import type {ClientState} from '../../type-definitions';
 
-const reducer: Reducer<ClientState> = (state, action) => {
+const reducer: Reducer<ClientState> = (state, action: AnyAction) => {
     if (typeof (state) === 'undefined') {
         return {
             joke: null,
