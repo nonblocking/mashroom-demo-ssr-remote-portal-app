@@ -1,4 +1,4 @@
-FROM node:16.18.0-slim
+FROM node:20.12.1-slim
 WORKDIR /opt/app
 COPY mashroom.json screenshot.png package.json package-lock.json ./
 COPY ./dist ./dist
