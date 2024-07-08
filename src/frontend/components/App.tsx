@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import fetchJoke from '../fetchJoke';
 import {setJoke, setLoading, setError} from '../store/actions';
-import styles from './App.scss';
+import * as styles from './App.scss';
 import type {ClientState} from '../../type-definitions';
 
 type Props = {
