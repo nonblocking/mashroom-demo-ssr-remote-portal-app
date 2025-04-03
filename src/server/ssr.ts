@@ -30,7 +30,7 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
     return {
         html: appHtml,
         injectHeadScript: `
-            window['__PRELOADED_STATE_${appId}__'] = "${JSON.stringify(preloadedState).replace(/"/g, '\\"')}";
+            window['__PRELOADED_STATE_${appId}__'] = ${JSON.stringify(preloadedState)};
         `
     };
 };
