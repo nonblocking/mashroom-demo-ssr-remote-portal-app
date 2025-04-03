@@ -2,10 +2,10 @@
 import {createElement} from 'react';
 import {renderToString} from 'react-dom/server';
 import {Provider} from 'react-redux';
-import {PORT} from './constants';
 import storeFactory from '../frontend/store';
 import App from '../frontend/components/App';
 import fetchJoke from '../frontend/fetchJoke';
+import {PORT} from './constants';
 import type {MashroomPortalAppPluginSSRBootstrapFunction} from '@mashroom/mashroom-portal/type-definitions';
 import type {ClientState} from '../type-definitions';
 
@@ -27,14 +27,12 @@ const ssrBootstrap: MashroomPortalAppPluginSSRBootstrapFunction = async (portalA
         )
     );
 
-    return `
-        <div>
-            <script>
-                 window['__PRELOADED_STATE_${appId}__'] = "${JSON.stringify(preloadedState).replace(/"/g, '\\"')}";
-            </script>
-            <div data-ssr-host="true">${appHtml}</div>
-        </div>
-    `;
+    return {
+        html: appHtml,
+        injectHeadScript: `
+            window['__PRELOADED_STATE_${appId}__'] = "${JSON.stringify(preloadedState).replace(/"/g, '\\"')}";
+        `
+    };
 };
 
 export default ssrBootstrap;

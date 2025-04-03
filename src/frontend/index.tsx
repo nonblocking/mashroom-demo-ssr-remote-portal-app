@@ -12,19 +12,18 @@ export const bootstrap: MashroomPortalAppPluginBootstrapFunction = (
     portalAppHostElement,
     portalAppSetup
 ) => {
-    const { appId, proxyPaths, appConfig: {standalone} } = portalAppSetup;
+    const { appId, proxyPaths, serverSideRendered, appConfig: {standalone} } = portalAppSetup;
     const bffBasePath = proxyPaths.bff;
 
     const preloadedStateStr = (global as any)[`__PRELOADED_STATE_${appId}__`];
-    const ssrHost = portalAppHostElement.querySelector('[data-ssr-host="true"]');
 
-    if (ssrHost && preloadedStateStr) {
+    if (serverSideRendered && preloadedStateStr) {
         // SSR
         console.info('SSR content found, hydrating App!');
         const preloadedState: ClientState = JSON.parse(preloadedStateStr);
         const store = storeFactory(preloadedState);
 
-        const root = hydrateRoot(ssrHost,
+        const root = hydrateRoot(portalAppHostElement,
             <Provider store={store}>
                 <App standalone={!!standalone} bffBasePath={bffBasePath}/>
             </Provider>,

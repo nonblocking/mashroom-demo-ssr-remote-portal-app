@@ -22,6 +22,9 @@
                 "resourcesRoot": "/",
                 "ssrInitialHtmlPath": "/api/ssr"
             },
+            "screenshots": [
+                "screenshot.png"
+            ],
             "defaultConfig": {
                 "title": "Demo Hybrid Rendering Remote App",
                 "description": {

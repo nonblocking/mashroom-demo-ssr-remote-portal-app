@@ -1,6 +1,6 @@
 
-import express from 'express';
 import path from 'path';
+import express from 'express';
 import {PORT} from './constants';
 import api from './routes/api';
 import test_ssr from './routes/test_ssr';
@@ -11,7 +11,6 @@ import 'cross-fetch/polyfill';
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const devMiddleware = require('./middleware/devMiddleware').default;
     app.use(devMiddleware);
 }

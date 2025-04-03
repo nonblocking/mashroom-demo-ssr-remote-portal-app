@@ -17,17 +17,17 @@ const reducer: Reducer<ClientState> = (state, action: AnyAction) => {
             return {
                 ...state,
                 joke: action.joke,
-            }
+            };
         case SET_LOADING:
             return {
                 ...state,
                 loading: action.loading,
-            }
+            };
         case SET_ERROR:
             return {
                 ...state,
                 error: action.error,
-            }
+            };
         default:
             return state;
     }

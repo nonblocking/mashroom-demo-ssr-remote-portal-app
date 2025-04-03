@@ -12,7 +12,7 @@ export default async (req: Request, res: Response) => {
             }
         };
 
-        const html = await ssr(portalAppSetup, req);
+        const {html} = await ssr(portalAppSetup, req) as any;
 
         const page = `
             <html>

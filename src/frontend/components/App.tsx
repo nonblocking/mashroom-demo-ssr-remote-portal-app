@@ -1,6 +1,6 @@
 
 import React, { useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import fetchJoke from '../fetchJoke';
 import {setJoke, setLoading, setError} from '../store/actions';
 import * as styles from './App.scss';
@@ -60,13 +60,13 @@ export default ({standalone, bffBasePath}: Props) => {
                 <div className={styles.Error}>Error loading</div>
                 <button className={styles.Button} onClick={loadJoke}>Retry</button>
             </div>
-        )
+        );
     } else if (!joke) {
         return (
             <div className={styles.App}>
                 <div>Loading...</div>
             </div>
-        )
+        );
     }
 
     return (

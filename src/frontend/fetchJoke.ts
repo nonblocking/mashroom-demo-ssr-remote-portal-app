@@ -10,4 +10,4 @@ export default (restProxyPath: string): Promise<string> => {
     ).then(
         (response) => response.joke
     );
-}
+};

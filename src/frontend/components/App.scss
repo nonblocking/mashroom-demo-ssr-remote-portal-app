@@ -1,6 +1,6 @@
 
 .App {
-    padding: 10px;
+    padding: var(--mashroom-portal-spacing-default, 10px);
 
 }
 
@@ -9,7 +9,7 @@
 }
 
 .Error {
-    color: red;
+    color: var(--mashroom-portal-color-error, red);
 }
 
 .RemoteAppInfoBox {
@@ -22,7 +22,7 @@
 .InfoIcon {
     &:before {
         content: '\f129';
-        font-family: var(--mashroom-portal-font-icon, 'Font Awesome 5 Free');
+        font-family: var(--mashroom-portal-font-icon, 'Font Awesome 6 Free');
         font-weight: 900;
         font-size: 22px;
         margin-right: 10px;

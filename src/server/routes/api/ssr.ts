@@ -19,7 +19,7 @@ export default async (req: Request, res: Response) => {
 
         const html = await ssr(ssrData.portalAppSetup, req);
 
-        res.setHeader('Content-Type', 'text/html');
+        res.setHeader('Content-Type', 'application/json');
         res.send(html);
 
     } catch (e: any) {

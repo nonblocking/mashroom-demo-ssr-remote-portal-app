@@ -2,8 +2,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const {merge} = require('webpack-merge');
-const common = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const common = require('./webpack.common');
 
 const isProd = process.env.NODE_ENV !== 'development';
 
